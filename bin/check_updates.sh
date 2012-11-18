@@ -63,7 +63,7 @@ if [ ! -f $FILE ]; then
 	fi
 else
 	echo $FILE has less than $MAXAGE seconds of life. If you really want to run me remove $FILE and try again.
-	exit 0
+	exit1
 fi
 
 #The index has changed. Update it.
