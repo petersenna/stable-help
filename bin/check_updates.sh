@@ -22,10 +22,18 @@ CONCURRENT=8
 COMPILESUCCESS=$BUILDLOG/SUCCESSBUILD
 COMPILEFAIL=$BUILDLOG/FAILBUILD
 
+function exit1 {
+	rm $LOCKFILE
+	echo ---------- End: $(date) ----------
+	exit 1
+}
+
 if [ -f $LOCKFILE ];then
 	echo The file $LOCKFILE is used as lockfile. If you are sure that there are not other copies of me running, remove $LOCKFILE and try again.
 	exit 1
 fi
+
+date > $LOCKFILE
 
 # Start date
 echo ---------- Start: $(date) ----------
@@ -46,12 +54,12 @@ if [ ! -f $FILE ]; then
 	wget $URL -O $FILE
 	if [ $? != 0 ]; then
 		echo Error getting index!
-		exit 1
+		exit1
 	fi
 	md5sum --check --quiet $LASTMD5 &> /dev/null
 	if [ $? == 0 ];then
 		echo Same md5sum of $FILE. If you really want to run me remove $LASTMD5 and try again...
-		exit 1
+		exit1
 	fi
 else
 	echo $FILE has less than $MAXAGE seconds of life. If you really want to run me remove $FILE and try again.
@@ -106,7 +114,7 @@ git checkout master
 git pull
 if [ $? != 0 ];then
 	echo ERROR on git pull
-	exit 1
+	exit1
 fi
 
 #Making kernels
@@ -135,14 +143,14 @@ while true; do
 	wget ${latesturl[i]}
 	if [ $? != 0 ];then
 		echo ERROR downloading
-		exit 1
+		exit1
 	fi
 
 	cd $GIT
 	git checkout ${stabletag[i]}
 	if [ $? != 0 ];then
 		echo ERROR git checkout ${stabletag[i]}
-		exit 1
+		exit1
 	fi
 
 	git checkout -b $pversion
@@ -150,7 +158,7 @@ while true; do
 	zcat /tmp/$patchgz |git apply
 	if [ $? != 0 ];then
 		echo ERROR git apply /tmp/$patch
-		exit 1
+		exit1
 	fi
 
 	git commit -a -m 'stable -rc patch applyed'
@@ -172,8 +180,6 @@ while true; do
 		break
 	fi
 
-
-	#exit 10
 done
 i=0
 
