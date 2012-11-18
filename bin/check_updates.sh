@@ -183,5 +183,7 @@ while true; do
 done
 i=0
 
+rm -rf $LOCKFILE
+
 # End date
 echo ---------- End: $(date) ----------
