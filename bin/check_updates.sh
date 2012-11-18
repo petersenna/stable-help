@@ -1,4 +1,6 @@
 #!/bin/bash
+# Peter Senna Tschudin - released under GPL2
+# v 0.1 18/11/2012
 
 URL="http://www.kernel.org/pub/linux/kernel/v3.x/stable-review"
 FILE=/tmp/stable-review.html
