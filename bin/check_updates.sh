@@ -23,7 +23,7 @@ COMPILESUCCESS=$BUILDLOG/SUCCESSBUILD
 COMPILEFAIL=$BUILDLOG/FAILBUILD
 
 function exit1 {
-	rm $LOCKFILE
+	rm -rf $LOCKFILE
 	echo ---------- End: $(date) ----------
 	exit 1
 }
