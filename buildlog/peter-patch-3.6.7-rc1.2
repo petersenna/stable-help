@@ -1,0 +1,203 @@
+/home/peter/stable-kernel/linux-stable/fs/namei.c: In function ‘link_path_walk’:
+/home/peter/stable-kernel/linux-stable/fs/namei.c:1553:11: warning: ‘cookie’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/fs/namei.c:1546:9: note: ‘cookie’ was declared here
+/home/peter/stable-kernel/linux-stable/fs/namei.c: In function ‘path_openat’:
+/home/peter/stable-kernel/linux-stable/fs/namei.c:2921:11: warning: ‘cookie’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/fs/namei.c: In function ‘path_lookupat’:
+/home/peter/stable-kernel/linux-stable/fs/namei.c:1946:12: warning: ‘cookie’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/oss/ad1848.c:2867:32: warning: ‘id_table’ defined but not used [-Wunused-variable]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/adau1373.c: In function ‘adau1373_hw_params’:
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/adau1373.c:940:3: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8978.c: In function ‘wm8978_hw_params’:
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8978.c:817:5: warning: ‘diff’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8983.c: In function ‘wm8983_set_pll’:
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8983.c:872:15: warning: ‘pll_div.k’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8983.c:870:9: warning: ‘pll_div.n’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8983.c:869:23: warning: ‘pll_div.div2’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8985.c: In function ‘wm8985_set_pll’:
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8985.c:851:15: warning: ‘pll_div.k’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8985.c:849:9: warning: ‘pll_div.n’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/sound/soc/codecs/wm8985.c:848:23: warning: ‘pll_div.div2’ may be used uninitialized in this function [-Wuninitialized]
+WARNING: sound/pci/hda/built-in.o(.text+0x448ed): Section mismatch in reference from the function azx_probe_continue() to the function .devinit.text:snd_hda_build_pcms()
+The function azx_probe_continue() references
+the function __devinit snd_hda_build_pcms().
+This is often because azx_probe_continue lacks a __devinit 
+annotation or the annotation of snd_hda_build_pcms is wrong.
+
+WARNING: sound/pci/built-in.o(.text+0x128d49): Section mismatch in reference from the function azx_probe_continue() to the function .devinit.text:snd_hda_build_pcms()
+The function azx_probe_continue() references
+the function __devinit snd_hda_build_pcms().
+This is often because azx_probe_continue lacks a __devinit 
+annotation or the annotation of snd_hda_build_pcms is wrong.
+
+WARNING: sound/built-in.o(.text+0x1b674d): Section mismatch in reference from the function azx_probe_continue() to the function .devinit.text:snd_hda_build_pcms()
+The function azx_probe_continue() references
+the function __devinit snd_hda_build_pcms().
+This is often because azx_probe_continue lacks a __devinit 
+annotation or the annotation of snd_hda_build_pcms is wrong.
+
+/home/peter/stable-kernel/linux-stable/drivers/extcon/extcon-max77693.c: In function ‘max77693_muic_adc_ground_handler’:
+/home/peter/stable-kernel/linux-stable/drivers/extcon/extcon-max77693.c:361:10: warning: ‘adclow’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/extcon/extcon-max77693.c:361:10: warning: ‘adc1k’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/extcon/extcon-max77693.c:361:10: warning: ‘adc’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/infiniband/hw/mlx4/qp.c: In function ‘build_mlx_header’:
+/home/peter/stable-kernel/linux-stable/drivers/infiniband/hw/mlx4/qp.c:1498:30: warning: ‘vlan’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/leds/leds-lp5523.c: In function ‘lp5523_selftest’:
+/home/peter/stable-kernel/linux-stable/drivers/leds/leds-lp5523.c:490:18: warning: ‘adc’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/leds/leds-lp5523.c:465:5: warning: ‘vdd’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/leds/leds-lp5523.c: In function ‘lp5523_configure’:
+/home/peter/stable-kernel/linux-stable/drivers/leds/leds-lp5523.c:247:9: warning: ‘status’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/isdn/hardware/mISDN/hfcpci.c: In function ‘hfcpci_softirq’:
+/home/peter/stable-kernel/linux-stable/drivers/isdn/hardware/mISDN/hfcpci.c:2298:2: warning: ignoring return value of ‘driver_for_each_device’, declared with attribute warn_unused_result [-Wunused-result]
+In file included from /home/peter/stable-kernel/linux-stable/drivers/message/i2o/config-osm.c:39:0:
+/home/peter/stable-kernel/linux-stable/drivers/message/i2o/i2o_config.c: In function ‘i2o_cfg_passthru’:
+/home/peter/stable-kernel/linux-stable/drivers/message/i2o/i2o_config.c:888:19: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/message/i2o/i2o_config.c:943:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/media/dvb/frontends/drxk_hard.c: In function ‘QAMDemodulatorCommand’:
+/home/peter/stable-kernel/linux-stable/drivers/media/dvb/frontends/drxk_hard.c:5467:5: warning: ‘status’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/wm8994-core.c: In function ‘wm8994_device_init.isra.0’:
+/home/peter/stable-kernel/linux-stable/drivers/mfd/wm8994-core.c:598:7: warning: ‘patch_regs’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/tps65217.c: In function ‘tps65217_probe’:
+/home/peter/stable-kernel/linux-stable/drivers/mfd/tps65217.c:169:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/twl6030-irq.c: In function ‘twl6030_init_irq’:
+/home/peter/stable-kernel/linux-stable/drivers/mfd/twl6030-irq.c:398:24: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/twl6030-irq.c:415:9: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/rc5t583.c: In function ‘__rc5t583_set_ext_pwrreq1_control.isra.1’:
+/home/peter/stable-kernel/linux-stable/drivers/mfd/rc5t583.c:106:15: warning: ‘sleepseq_val’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/mfd/rc5t583-irq.c: In function ‘rc5t583_irq’:
+/home/peter/stable-kernel/linux-stable/drivers/mfd/rc5t583-irq.c:276:20: warning: ‘master_int’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/net/ethernet/amd/nmclan_cs.c: In function ‘nmclan_config’:
+/home/peter/stable-kernel/linux-stable/drivers/net/ethernet/amd/nmclan_cs.c:625:3: warning: ‘pcmcia_request_exclusive_irq’ is deprecated (declared at /home/peter/stable-kernel/linux-stable/include/pcmcia/ds.h:201) [-Wdeprecated-declarations]
+/home/peter/stable-kernel/linux-stable/drivers/regulator/core.c: In function ‘_regulator_do_set_voltage’:
+/home/peter/stable-kernel/linux-stable/drivers/regulator/core.c:2183:10: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/net/ethernet/i825xx/znet.c: In function ‘hardware_init’:
+/home/peter/stable-kernel/linux-stable/drivers/net/ethernet/i825xx/znet.c:868:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+/home/peter/stable-kernel/linux-stable/drivers/net/ethernet/i825xx/znet.c:875:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+/home/peter/stable-kernel/linux-stable/drivers/rtc/rtc-m41t80.c:216:12: warning: ‘m41t80_rtc_alarm_irq_enable’ defined but not used [-Wunused-function]
+/home/peter/stable-kernel/linux-stable/drivers/rtc/rtc-m41t80.c:238:12: warning: ‘m41t80_rtc_set_alarm’ defined but not used [-Wunused-function]
+/home/peter/stable-kernel/linux-stable/drivers/rtc/rtc-m41t80.c:308:12: warning: ‘m41t80_rtc_read_alarm’ defined but not used [-Wunused-function]
+/home/peter/stable-kernel/linux-stable/drivers/regulator/tps62360-regulator.c: In function ‘tps62360_probe’:
+/home/peter/stable-kernel/linux-stable/drivers/regulator/tps62360-regulator.c:364:13: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+/home/peter/stable-kernel/linux-stable/drivers/regulator/twl-regulator.c:662:29: warning: ‘twl6030_fixed_resource’ defined but not used [-Wunused-variable]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic94xx/aic94xx_sds.c: In function ‘asd_process_ctrl_a_user’:
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic94xx/aic94xx_sds.c:597:21: warning: ‘offs’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic94xx/aic94xx_sds.c:985:6: note: ‘offs’ was declared here
+/home/peter/stable-kernel/linux-stable/drivers/staging/android/binder.c: In function ‘binder_alloc_buf’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/android/binder.c:779:37: warning: ‘buffer_size’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/staging/android/binder.c:779:24: warning: ‘buffer’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/staging/bcm/CmHost.c: In function ‘StoreCmControlResponseMessage’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/bcm/CmHost.c:1401:39: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/staging/bcm/CmHost.c:1440:37: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/staging/bcm/CmHost.c:1454:35: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+/home/peter/stable-kernel/linux-stable/drivers/staging/comedi/drivers/vmk80xx.c: In function ‘vmk80xx_cnt_rinsn’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/comedi/drivers/vmk80xx.c:920:37: warning: ‘reg[0]’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/staging/comedi/drivers/vmk80xx.c: In function ‘vmk80xx_ai_rinsn’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/comedi/drivers/vmk80xx.c:566:28: warning: ‘reg[0]’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/mvsas/mv_sas.c: In function ‘mvs_update_phyinfo’:
+/home/peter/stable-kernel/linux-stable/drivers/scsi/mvsas/mv_sas.c:1156:34: warning: comparison between ‘enum sas_device_type’ and ‘enum sas_dev_type’ [-Wenum-compare]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/mvsas/mv_sas.c:1159:39: warning: comparison between ‘enum sas_device_type’ and ‘enum sas_dev_type’ [-Wenum-compare]
+/home/peter/stable-kernel/linux-stable/drivers/staging/cxt1e1/functions.c: In function ‘VMETRO_TRACE’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/cxt1e1/functions.c:275:21: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+WARNING: drivers/staging/ipack/bridges/built-in.o(.data+0x28): Section mismatch in reference from the variable tpci200_pci_drv to the variable .devinit.rodata:tpci200_idtable
+The variable tpci200_pci_drv references
+the variable __devinitconst tpci200_idtable
+If the reference is valid then annotate the
+variable with __init* or __refdata (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/staging/ipack/bridges/built-in.o(.data+0x38): Section mismatch in reference from the variable tpci200_pci_drv to the function .devexit.text:tpci200_pci_remove()
+The variable tpci200_pci_drv references
+the function __devexit tpci200_pci_remove()
+If the reference is valid then annotate the
+variable with __exit* (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/staging/ipack/built-in.o(.data+0x228): Section mismatch in reference from the variable tpci200_pci_drv to the variable .devinit.rodata:tpci200_idtable
+The variable tpci200_pci_drv references
+the variable __devinitconst tpci200_idtable
+If the reference is valid then annotate the
+variable with __init* or __refdata (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/staging/ipack/built-in.o(.data+0x238): Section mismatch in reference from the variable tpci200_pci_drv to the function .devexit.text:tpci200_pci_remove()
+The variable tpci200_pci_drv references
+the function __devexit tpci200_pci_remove()
+If the reference is valid then annotate the
+variable with __exit* (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+/home/peter/stable-kernel/linux-stable/drivers/scsi/advansys.c:71:2: warning: #warning this driver is still not properly converted to the DMA API [-Wcpp]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/dpt_i2o.c:183:29: warning: ‘dptids’ defined but not used [-Wunused-variable]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c: In function ‘aic7xxx_register’:
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c:7901:5: warning: case value ‘257’ not in enumerated type ‘ahc_chip’ [-Wswitch]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c:7898:5: warning: case value ‘513’ not in enumerated type ‘ahc_chip’ [-Wswitch]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c: In function ‘aic7xxx_load_seeprom’:
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c:8517:5: warning: case value ‘257’ not in enumerated type ‘ahc_chip’ [-Wswitch]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/aic7xxx_old.c:8510:5: warning: case value ‘513’ not in enumerated type ‘ahc_chip’ [-Wswitch]
+/home/peter/stable-kernel/linux-stable/drivers/staging/media/easycap/easycap_main.c: In function ‘easycap_usb_probe’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/media/easycap/easycap_main.c:3986:6: warning: ‘rc’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/fdomain.c:1774:29: warning: ‘fdomain_pci_tbl’ defined but not used [-Wunused-variable]
+/home/peter/stable-kernel/linux-stable/drivers/staging/media/lirc/lirc_serial.c: In function ‘__check_sense’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/media/lirc/lirc_serial.c:1301:1: warning: return from incompatible pointer type [enabled by default]
+/home/peter/stable-kernel/linux-stable/drivers/scsi/initio.c:131:29: warning: ‘i91u_pci_devices’ defined but not used [-Wunused-variable]
+/home/peter/stable-kernel/linux-stable/drivers/usb/storage/uas.c: In function ‘uas_stat_cmplt’:
+/home/peter/stable-kernel/linux-stable/drivers/usb/storage/uas.c:261:15: warning: ‘cmdinfo’ may be used uninitialized in this function [-Wuninitialized]
+/home/peter/stable-kernel/linux-stable/drivers/virtio/virtio_mmio.c: In function ‘vm_cmdline_set’:
+/home/peter/stable-kernel/linux-stable/drivers/virtio/virtio_mmio.c:526:4: warning: format ‘%u’ expects argument of type ‘unsigned int *’, but argument 4 has type ‘resource_size_t *’ [-Wformat]
+/home/peter/stable-kernel/linux-stable/drivers/staging/slicoss/slicoss.c: In function ‘slic_rspqueue_getnext’:
+/home/peter/stable-kernel/linux-stable/drivers/staging/slicoss/slicoss.c:1493:19: warning: operation on ‘rspq->pageindex’ may be undefined [-Wsequence-point]
+/home/peter/stable-kernel/linux-stable/drivers/xen/xenbus/xenbus_xs.c:627:13: warning: function declaration isn’t a prototype [-Wstrict-prototypes]
+WARNING: drivers/staging/built-in.o(.data+0xfc28): Section mismatch in reference from the variable tpci200_pci_drv to the variable .devinit.rodata:tpci200_idtable
+The variable tpci200_pci_drv references
+the variable __devinitconst tpci200_idtable
+If the reference is valid then annotate the
+variable with __init* or __refdata (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/staging/built-in.o(.data+0xfc38): Section mismatch in reference from the variable tpci200_pci_drv to the function .devexit.text:tpci200_pci_remove()
+The variable tpci200_pci_drv references
+the function __devexit tpci200_pci_remove()
+If the reference is valid then annotate the
+variable with __exit* (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/built-in.o(.data+0x3ae328): Section mismatch in reference from the variable tpci200_pci_drv to the variable .devinit.rodata:tpci200_idtable
+The variable tpci200_pci_drv references
+the variable __devinitconst tpci200_idtable
+If the reference is valid then annotate the
+variable with __init* or __refdata (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: drivers/built-in.o(.data+0x3ae338): Section mismatch in reference from the variable tpci200_pci_drv to the function .devexit.text:tpci200_pci_remove()
+The variable tpci200_pci_drv references
+the function __devexit tpci200_pci_remove()
+If the reference is valid then annotate the
+variable with __exit* (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+/home/peter/stable-kernel/out/peter-patch-3.6.7-rc1/usr/include/linux/kexec.h:49: userspace cannot reference function or variable defined in the kernel
+/home/peter/stable-kernel/out/peter-patch-3.6.7-rc1/usr/include/linux/soundcard.h:1054: userspace cannot reference function or variable defined in the kernel
+WARNING: vmlinux.o(.text+0x2e9f86d): Section mismatch in reference from the function azx_probe_continue() to the function .devinit.text:snd_hda_build_pcms()
+The function azx_probe_continue() references
+the function __devinit snd_hda_build_pcms().
+This is often because azx_probe_continue lacks a __devinit 
+annotation or the annotation of snd_hda_build_pcms is wrong.
+
+WARNING: vmlinux.o(.data+0x6b4328): Section mismatch in reference from the variable tpci200_pci_drv to the variable .devinit.rodata:tpci200_idtable
+The variable tpci200_pci_drv references
+the variable __devinitconst tpci200_idtable
+If the reference is valid then annotate the
+variable with __init* or __refdata (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+WARNING: vmlinux.o(.data+0x6b4338): Section mismatch in reference from the variable tpci200_pci_drv to the function .devexit.text:tpci200_pci_remove()
+The variable tpci200_pci_drv references
+the function __devexit tpci200_pci_remove()
+If the reference is valid then annotate the
+variable with __exit* (see linux/init.h) or name the variable:
+*driver, *_template, *_timer, *_sht, *_ops, *_probe, *_probe_one, *_console
+
+Succeed: decoded and checked 13583056 instructions
+Setup is 17360 bytes (padded to 17408 bytes).
+System is 42158 kB
+CRC b0822cc5
