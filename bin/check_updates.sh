@@ -15,8 +15,8 @@ stable[3]="" # Only for safety
 i=0
 
 GIT=/home/peter/stable-kernel/linux-stable
-OUTDIR=/home/peter/stable-kernel/linux-stable-out
-BUILDLOG=/home/peter/stable-kernel/linux-stable-buildlog
+OUTDIR=/home/peter/stable-kernel/out
+BUILDLOG=/home/peter/stable-kernel/buildlog
 CONCURRENT=8
 
 COMPILESUCCESS=$BUILDLOG/SUCCESSBUILD
@@ -140,7 +140,7 @@ while true; do
 	mkdir $outdir
 
 	cd /tmp
-	wget ${latesturl[i]}
+	wget ${latesturl[i]} -O /tmp/$patchgz
 	if [ $? != 0 ];then
 		echo ERROR downloading
 		exit1
