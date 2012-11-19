@@ -160,6 +160,7 @@ while true; do
 		echo ERROR git apply /tmp/$patch
 		exit1
 	fi
+	rm /tmp/$patchgz
 
 	git commit -a -m 'stable -rc patch applyed'
 	make allyesconfig O=$outdir
