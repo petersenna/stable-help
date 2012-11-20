@@ -1,6 +1,6 @@
 #!/bin/bash
 # Peter Senna Tschudin - released under GPL2
-# v 0.1 18/11/2012
+# v 0.2 20/11/2012
 
 URL="http://www.kernel.org/pub/linux/kernel/v3.x/stable-review"
 FILE=/tmp/stable-review.html
@@ -21,6 +21,8 @@ CONCURRENT=8
 
 COMPILESUCCESS=$BUILDLOG/SUCCESSBUILD
 COMPILEFAIL=$BUILDLOG/FAILBUILD
+
+
 
 function exit1 {
 	rm -rf $LOCKFILE
@@ -116,10 +118,85 @@ if [ $? != 0 ];then
 	echo ERROR on git pull
 	exit1
 fi
+make clean
 
-#Making kernels
+#Making kernels I
+MAKECONFIG=oldconfig
+MAKETARGET=deb-pkg
 while true; do
-	pversion=peter-${stable[i]}.${latestrc[i]}
+	pversion=$MAKECONFIG-${stable[i]}.${latestrc[i]}
+	echo ----------
+	echo $pversion
+	echo ----------
+
+	cat $COMPILESUCCESS $COMPILEFAIL | grep $pversion &> /dev/null
+	if [ $? == 0 ];then
+		echo Kernel $pversion was already built...
+		let "i += 1"
+		if [ ! "${stable[i]}" ]; then
+			break
+		fi
+		continue
+	fi
+
+	patchgz=$(echo ${latesturl[i]}|awk -F/ '{print $(NF)}')
+	outdir=$OUTDIR/$pversion
+
+	mkdir $outdir
+
+	cd /tmp
+	wget ${latesturl[i]} -O /tmp/$patchgz
+	if [ $? != 0 ];then
+		echo ERROR downloading
+		exit1
+	fi
+
+	cd $GIT
+	git checkout ${stabletag[i]}
+	if [ $? != 0 ];then
+		echo ERROR git checkout ${stabletag[i]}
+		exit1
+	fi
+
+	git checkout -b $pversion
+
+	zcat /tmp/$patchgz |git apply
+	if [ $? != 0 ];then
+		echo ERROR git apply /tmp/$patch
+		exit1
+	fi
+	rm /tmp/$patchgz
+	git commit -a -m 'stable -rc patch applyed'
+
+	cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) .config
+	cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) $outdir/.config
+	yes ""|make $MAKECONFIG O=$outdir > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
+	make mrproper
+
+	cd $outdir
+	make -j$CONCURRENT $MAKETARGET > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
+	if [ $? == 0 ];then
+		echo $pversion >> $COMPILESUCCESS
+	else
+		echo $pversion >> $COMPILEFAIL
+	fi
+
+	cd $GIT
+	git checkout master
+	git branch -D $pversion
+
+	let "i += 1"
+        if [ ! "${stable[i]}" ]; then
+		break
+	fi
+done
+i=0
+
+#Making kernels II
+MAKECONFIG=allmodconfig
+MAKETARGET=""
+while true; do
+	pversion=$MAKECONFIG-${stable[i]}.${latestrc[i]}
 	echo ----------
 	echo $pversion
 	echo ----------
@@ -163,9 +240,9 @@ while true; do
 	rm /tmp/$patchgz
 
 	git commit -a -m 'stable -rc patch applyed'
-	make allyesconfig O=$outdir
+	make $MAKECONFIG O=$outdir > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
 	cd $outdir
-	make -j$CONCURRENT > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
+	make -j$CONCURRENT $MAKETARGET > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
 	if [ $? == 0 ];then
 		echo $pversion >> $COMPILESUCCESS
 	else
@@ -180,7 +257,6 @@ while true; do
         if [ ! "${stable[i]}" ]; then
 		break
 	fi
-
 done
 i=0
 
