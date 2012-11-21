@@ -4,7 +4,8 @@
 
 URL="http://www.kernel.org/pub/linux/kernel/v3.x/stable-review"
 FILE=/tmp/stable-review.html
-LASTMD5=/home/peter/stable-kernel/bin/lastmd5.md5
+ROOTDIR=/home/peter/devel/git/stable-help
+LASTMD5=$ROOTDIR/bin/lastmd5.md5
 MAXAGE=240 # 4 minutes
 LOCKFILE=/tmp/IMRUNNING888
 
@@ -14,15 +15,13 @@ stable[2]="patch-3.6"
 stable[3]="" # Only for safety
 i=0
 
-GIT=/home/peter/stable-kernel/linux-stable
-OUTDIR=/home/peter/stable-kernel/out
-BUILDLOG=/home/peter/stable-kernel/buildlog
-CONCURRENT=8
+GIT=$ROOTDIR/linux-stable
+OUTDIR=$ROOTDIR/out
+BUILDLOG=$ROOTDIR/buildlog
+CONCURRENT=4
 
 COMPILESUCCESS=$BUILDLOG/SUCCESSBUILD
 COMPILEFAIL=$BUILDLOG/FAILBUILD
-
-
 
 function exit1 {
 	rm -rf $LOCKFILE
@@ -120,9 +119,9 @@ if [ $? != 0 ];then
 fi
 make clean
 
-#Making kernels I
+#Making kernels I: Making RPM packages. This will work on Fedora.
 MAKECONFIG=oldconfig
-MAKETARGET=deb-pkg
+MAKETARGET=rpm-pkg
 while true; do
 	pversion=$MAKECONFIG-${stable[i]}.${latestrc[i]}
 	echo ----------
@@ -169,11 +168,12 @@ while true; do
 	git commit -a -m 'stable -rc patch applyed'
 
 	cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) .config
-	cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) $outdir/.config
-	yes ""|make $MAKECONFIG O=$outdir > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
-	make mrproper
+	#cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) $outdir/.config
+	#yes ""|make $MAKECONFIG O=$outdir > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
+	yes ""|make $MAKECONFIG > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
+	#make mrproper
 
-	cd $outdir
+	#cd $outdir
 	make -j$CONCURRENT $MAKETARGET > $BUILDLOG/$pversion.1 2> $BUILDLOG/$pversion.2
 	if [ $? == 0 ];then
 		echo $pversion >> $COMPILESUCCESS
@@ -181,7 +181,7 @@ while true; do
 		echo $pversion >> $COMPILEFAIL
 	fi
 
-	cd $GIT
+	#cd $GIT
 	git checkout master
 	git branch -D $pversion
 
@@ -192,7 +192,7 @@ while true; do
 done
 i=0
 
-#Making kernels II
+#Making kernels II: allmodconfig
 MAKECONFIG=allmodconfig
 MAKETARGET=""
 while true; do
