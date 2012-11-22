@@ -165,7 +165,7 @@ while true; do
 		exit1
 	fi
 	rm /tmp/$patchgz
-	git commit -a -m 'stable -rc patch applyed'
+	git commit -a -m 'stable -rc patch applied'
 
 	cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) .config
 	#cp /boot/$(ls /boot/|grep config|sort -g|tail -n 1) $outdir/.config
